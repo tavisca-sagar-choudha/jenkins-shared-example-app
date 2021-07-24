@@ -1,0 +1,25 @@
+@Library('tavisca-demo@master') _
+
+pipeline {
+    agent any
+    environment { 
+        DEPLOY_TO = 'production'
+    }
+    stages {
+        stage('Welcome Step') {
+            when { 
+                anyOf { 
+                    environment name: 'DEPLOY_TO', value: 'production'
+                    environment name: 'DEPLOY_TO', value: 'dev'
+                } 
+            }
+            steps { 
+librarytest('Rahul Chaudhuri')
+librarytest('Deepa Chaudhuri')
+script{
+librarytest.sum(10,20)
+librarytest.mul(10,20) }
+            }
+        }
+    }
+}
